@@ -20,7 +20,7 @@ app.post('/get-token', (req, res) => {
     return res.status(400).json({ error: 'Missing userName or roomName' });
   }
 
-  const at = new AccessToken(process.env.APIdDYBuyLvZmyH, process.env.OmVXnnFEA5UdPb2xZf5RAYfSyl7rf2wniXuTPyXpB5bA, {
+  const at = new AccessToken(process.env.LIVEKIT_API_KEY, process.env.LIVEKIT_API_SECRET, {
     identity: userName,
   });
 
