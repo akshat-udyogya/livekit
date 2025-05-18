@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
   res.send('LiveKit Token Server is running');
 });
 
-app.post('/get-token', (req, res) => {
+app.post('/get-token', async (req, res) => {
   const { userName, roomName } = req.body;
 
   console.log('Received /get-token request');
@@ -39,7 +39,7 @@ app.post('/get-token', (req, res) => {
       room: roomName
     });
 
-    const token = at.toJwt();
+    const token = await at.toJwt(); // ✅ await the Promise
 
     console.log('Generated token:', token);
 
